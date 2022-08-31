@@ -10,6 +10,7 @@ simulator_directory = dir_path + '/CarlaSimulatorScenes/Carla-Object-Detection-D
 real_results = dir_path + '/final/real_results/'
 simulator_results = dir_path + '/final/simulator_results/'
 
+
 # Funkcija za obradu slika
 def preprocess_image(img, crop_size, resize_size):
     if (crop_size):
@@ -34,31 +35,10 @@ def preprocess_data(source_directory, results_directory, crop_size, resize_size,
             print(f"{k} done...")
 
 
-preprocess_data(source_directory=real_directory, results_directory=real_results, crop_size=720, resize_size=256,
-                step_print=100, every_nth=1)
+if __name__ == "__main__":
+    preprocess_data(source_directory=real_directory, results_directory=real_results, crop_size=720, resize_size=256,
+                    step_print=100, every_nth=1)
 
-preprocess_data(source_directory=simulator_directory, results_directory=simulator_results, crop_size=380,
-                resize_size=256,
-                step_print=100, every_nth=2)
-# # Stvarne slike
-# k = 0
-# for image in os.listdir(real_directory):
-#
-#     img = Image.open(real_directory + str(image))
-#     img = preprocess_image(img, crop_size, resize_size)
-#     img.save(real_results + str(k) + '.png')
-#     k += 1
-#     if (k % step_print == 0):
-#         print(f"{k} done...")
-#
-# # Simulator slike
-# # k = 0
-# # for image in os.listdir(simulator_directory):
-# #
-# #     if (k % every_nth == 0):
-# #         img = Image.open(simulator_directory + str(image))
-# #         img = preprocess(img, crop_size, resize_size)
-# #         img.save(simulator_results + str(k) + '.png')
-# #     k += 1
-# #     if (k % step_print == 0):
-# #         print(f"{k} done...")
+    preprocess_data(source_directory=simulator_directory, results_directory=simulator_results, crop_size=380,
+                    resize_size=256,
+                    step_print=100, every_nth=2)
