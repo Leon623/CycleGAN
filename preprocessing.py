@@ -37,7 +37,7 @@ def preprocess_data(source_directory, results_directory, crop_size, resize_size,
 
 if __name__ == "__main__":
     preprocess_data(source_directory=real_directory, results_directory=real_results, crop_size=720, resize_size=256,
-                    step_print=100, every_nth=1)
+                    step_print=100, every_nth=4)
 
     preprocess_data(source_directory=simulator_directory, results_directory=simulator_results, crop_size=380,
                     resize_size=256,
